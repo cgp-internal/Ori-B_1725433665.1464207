@@ -1,0 +1,70 @@
+{
+    "cities.csv": {
+        "description": "CSV file containing cities data with sample records, including columns for city name, country, and population."
+    },
+    "models/City.js": {
+        "description": "Defines the City data model with attributes for city name, country, and population.",
+        "exposes": [
+            "City"
+        ]
+    },
+    "repositories/CityRepository.js": {
+        "description": "Provides data access and manipulation functionality for cities data.",
+        "dependencies": {
+            "models/City.js": [
+                "City"
+            ]
+        },
+        "exposes": [
+            "CityRepository"
+        ]
+    },
+    "services/CityService.js": {
+        "description": "Exposes business logic for managing cities data, including read and write operations.",
+        "dependencies": {
+            "repositories/CityRepository.js": [
+                "CityRepository"
+            ]
+        },
+        "exposes": [
+            "CityService"
+        ]
+    },
+    "controllers/CityController.js": {
+        "description": "Handles HTTP requests and responses for cities data, utilizing the CityService.",
+        "dependencies": {
+            "services/CityService.js": [
+                "CityService"
+            ]
+        },
+        "exposes": [
+            "CityController"
+        ]
+    },
+    "app.js": {
+        "description": "Main entry point for the application. Sets up the Express server, defines routes, and starts the server.",
+        "dependencies": {
+            "controllers/CityController.js": [
+                "CityController"
+            ]
+        },
+        "exposes": [
+            "app"
+        ]
+    },
+    "db.js": {
+        "description": "Sets up and configures the SQLite database connection.",
+        "exposes": [
+            "db"
+        ]
+    },
+    ".gitignore": {
+        "description": ".gitignore with node-modules and cache files"
+    },
+    "README.md": {
+        "description": "README with basic documentation and 'how to run' guide"
+    },
+    "run.sh": {
+        "description": "bash run script, should: install Node, init a project, install Express and SQLite"
+    }
+}
